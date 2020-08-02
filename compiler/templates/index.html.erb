@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= @title ? "Stephen Meriwether | #{@title}" : "Stephen Meriwether" %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="Hi, I'm Stephen Meriwether. I'm a Director at Sprout Labs. When I'm not working I spend most of my time reading, listening to podcats, or browsing the web.">
+    <link rel="stylesheet" href="<%= "#{@styles_link}" %>" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+  </head>
+  <body>
+    <div class="container">
+      <%= @template_content %>
+    </div>
+
+    <footer>
+      <div class="footer--title">
+        <span>Made with ❤️  in NYC</span>
+      </div>
+
+      <div class="footer--links">
+        <%= @footer_content %>
+      </div>
+    </footer>
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://donkey.smeriwether.com/script.js" site="XSGZOHCD" defer></script>
+    <!-- / Fathom -->
+  </body>
+</html>

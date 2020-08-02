@@ -1,0 +1,11 @@
+# September 2017
+
+## Income
+
+Gross Earnings: $5,958.34
+
+Taxes Withheld: $1,456.37
+
+Deductions: $4.96
+
+Net Pay: $4,497.01

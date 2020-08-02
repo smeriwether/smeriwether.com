@@ -1,0 +1,10 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <% @sitemap_pages.each do |page| %>
+    <url>
+      <loc><%= "https://smeriwether.com/#{page}" %></loc>
+      <lastmod><%= Time.new.strftime('%Y-%m-%d') %></lastmod>
+      <changefreq>weekly</changefreq>
+      <priority><%= page == "" ? "1.0" : "0.9" %></priority>
+    </url>
+  <% end %>
+</urlset>

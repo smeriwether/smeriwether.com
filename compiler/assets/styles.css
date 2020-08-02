@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+   font-family: "SourceSansProRegular";
+   src: url("./fonts/SourceSansPro-Regular.ttf") format("truetype");
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "SourceSansProBold";
+   src: url("./fonts/SourceSansPro-Bold.ttf") format("truetype");
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "SourceSansProSemiBold";
+   src: url("./fonts/SourceSansPro-SemiBold.ttf") format("truetype");
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "SourceSansProItalic";
+   src: url("./fonts/SourceSansPro-Italic.ttf") format("truetype");
+   font-weight: normal;
+   font-style: normal;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'SourceSansProRegular', georgia, serif;
+  background-color: #FFFFFF;
+  color: #0d1103;
+  font-size: 18px;
+  line-height: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'SourceSansProBold', georgia, serif;
+  padding: 1rem 0;
+}
+
+h1 {
+  font-size: 2.2rem;
+  line-height: 3rem;
+}
+
+h2 {
+  font-size: 1.7rem;
+  line-height: 2.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+strong {
+  font-family: 'SourceSansProSemiBold', georgia, serif;
+}
+
+em {
+  font-family: 'SourceSansProItalic', georgia, serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p {
+  padding-bottom: 2rem;
+}
+
+a,a:visited {
+  color: #0d1103;
+}
+
+a:hover {
+  color: #55584e;
+}
+
+ul, ol {
+  padding-left: 2rem;
+}
+
+li {
+  padding-bottom: 0.5rem;
+}
+
+pre {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background-color: #F5F5F5;
+  overflow-y: scroll;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 14px;
+  line-height: 1.5rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  padding: 4rem;
+}
+
+.books {
+  padding: 1rem 0;
+}
+
+.book {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.book--img {
+  display: block;
+  padding-right: 1.5rem;
+}
+
+.book--name {
+  display: block;
+}
+
+.money--statements > p {
+  padding-bottom: 0;t
+}
+
+@media screen and (max-width: 414px) {
+  .container {
+    padding: 1.5rem;
+  }
+}

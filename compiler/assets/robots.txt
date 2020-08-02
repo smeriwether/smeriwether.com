@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /archives/*
+Disallow: /archive
+Sitemap: https://smeriwether.com/sitemap.xml

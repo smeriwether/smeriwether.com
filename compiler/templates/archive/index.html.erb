@@ -1,0 +1,14 @@
+<a href="<%= Link.home %>">Go back home</a>
+
+<%= @content %>
+
+<h2>Writing</h2>
+
+<ul>
+  <% @writing_archives.each do |archive| %>
+    <li>
+      <a href='<%= Link.create("./archives/writing/#{archive}.html")%>'><%= archive.titleize %></a>
+    </li>
+  <% end %>
+</ul>
+

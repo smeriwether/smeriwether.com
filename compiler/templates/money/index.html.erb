@@ -1,0 +1,12 @@
+<a href="<%= Link.home %>">Go back home</a>
+
+<%= @content %>
+
+<h2>Statements</h2>
+<ul>
+  <% @money_statements.map { |statement| Date.parse(statement) }.sort.reverse.each do |statement_date| %>
+    <li>
+      <a href="<%= Link.create("./archives/statements/#{statement_date.strftime('%B-%Y').downcase}.html") %>"><%= statement_date.strftime('%B %Y') %></a>
+    </li>
+  <% end %>
+</ul>
