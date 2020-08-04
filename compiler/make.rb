@@ -16,6 +16,7 @@ FileUtils.rm_rf Dir.glob("./site/*")
 # Some pages (like books) pull in information from others sources.
 # In order for the templates to work, that information needs to be
 # set on the page before `page.create!` is called.
+puts "Downloading info from goodreads..."
 goodreads = Goodreads.new
 currently_reading_books = goodreads.currently_reading!
 previously_read_books = goodreads.previously_read!
@@ -46,6 +47,7 @@ page.set_money_statements(money_statements)
 page.set_writing_archives(writing_archives)
 page.set_sitemap_pages(sitemap_pages)
 
+puts "Creating pages..."
 page.create!("home")
 page.create!("now")
 page.create!("books")
@@ -72,4 +74,7 @@ end
 
 page.create_without_content!("sitemap", site_page_name: "sitemap.xml")
 
+puts "Copying assets..."
 FileUtils.cp_r('compiler/assets/.', 'site/')
+
+puts "Done!"
