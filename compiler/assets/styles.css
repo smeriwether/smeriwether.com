@@ -144,3 +144,23 @@ footer {
     padding: 1.5rem;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #1E1E1E;
+    color: white;
+  }
+
+  a,a:visited {
+    color: white;
+  }
+
+  a:hover {
+    color: #C6C6C6;
+  }
+
+  code, pre {
+    background-color: #2D2D2D;
+  }
+}
+
