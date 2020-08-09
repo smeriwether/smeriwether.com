@@ -4,7 +4,7 @@
 
 ## Links
 
-Here are a couple of my favorite links from my website.
+Here are a couple of my favorite links from the website.
 
 * [What I'm up to now](https://smeriwether.com/now)
 * [What I'm reading](https://smeriwether.com/books)
