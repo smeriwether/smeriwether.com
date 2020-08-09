@@ -28,6 +28,10 @@ writing_archives = Dir["content/archives/writing/*"].map do |filename|
   File.basename(filename, ".*")
 end
 
+now_archives = Dir["content/archives/now/*"].map do |filename|
+  File.basename(filename, ".*")
+end
+
 sitemap_pages = Dir["content/*"].map do |filename|
   filename = File.basename(filename)
   if filename == "home"
@@ -44,6 +48,7 @@ page.set_currently_reading_books(currently_reading_books)
 page.set_previously_read_books(previously_read_books)
 page.set_money_statements(money_statements)
 page.set_writing_archives(writing_archives)
+page.set_now_archives(now_archives)
 page.set_sitemap_pages(sitemap_pages)
 
 page.create!("home")
@@ -67,6 +72,14 @@ writing_archives.each do |archive_filename|
     "archives/writing",
     content_filename: "#{archive_filename}.md",
     site_page_name: "archives/writing/#{archive_filename}",
+  )
+end
+
+now_archives.each do |archive_filename|
+  page.create!(
+    "archives/now",
+    content_filename: "#{archive_filename}.md",
+    site_page_name: "archives/now/#{archive_filename}",
   )
 end
 

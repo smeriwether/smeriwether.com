@@ -12,3 +12,12 @@
   <% end %>
 </ul>
 
+<h2>Now</h2>
+
+<ul>
+  <% @now_archives.each do |archive| %>
+    <li>
+      <a href='<%= Link.create("./archives/now/#{archive}.html")%>'><%= archive.titleize %></a>
+    </li>
+  <% end %>
+</ul>

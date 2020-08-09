@@ -39,6 +39,10 @@ class Page
     @writing_archives = content
   end
 
+  def set_now_archives(content)
+    @now_archives = content
+  end
+
   def set_sitemap_pages(content)
     @sitemap_pages = content
   end
