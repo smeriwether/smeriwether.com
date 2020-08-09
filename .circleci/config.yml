@@ -10,10 +10,30 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Install & Build & Deploy"
+          name: "Install"
           command: |
             gem install bundler -v 2.1.4
             bundle install
-            gem install activesupport
-            PROD=true ruby ./compiler/make.rb
-            ./infra/deploy.sh
+      - add_ssh_keys
+      - run:
+          name: "Build & Deploy"
+          command: |
+            eval `ssh-agent`
+            ssh-add ~/.ssh/id_rsa*
+            /bin/bash ./infra/deploy.sh
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - build
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
