@@ -1,7 +1,3 @@
-# Now
-
-This is a [now](https://nownownow.com/about) page. It's a brief overview of what I've been up to.
-
 Experiences in the last few days have left me feeling overwhelmingly sad. As I've been thinking about those experiences, and the experiences of the last few 
 months a couple of things have started to emerge.
 
