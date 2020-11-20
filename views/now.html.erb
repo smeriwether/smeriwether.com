@@ -1,0 +1,32 @@
+<header>
+  <a href="index.html">Go back home</a>
+
+  <h1 class="mt-4 md:mt-8">Now</h1>
+  <p class="text-gray-600">
+    This is a <a href="https://nownownow.com/about" target="_blank">now</a> page.
+  </p>
+</header>
+
+<div class="mt-8">
+  <div>
+    <%== @now_posts[0].content_html %>
+  </div>
+
+  <div class="mt-2">
+    <span class="text-gray-600 text-sm italic">
+      Published on <%= @now_posts[0].published_at.strftime("%b %d, %Y") %>
+    </span>
+  </div>
+</div>
+
+<div class="mt-8">
+  <h2>Previous updates</h2>
+  <ul>
+    <% @now_posts.each do |now_post| %>
+      <li>
+        <a href="<%= now_post.source_url %>" target="_blank"><%= now_post.title %></a>
+        <span class="pl-1 text-sm text-gray-500 italic">(<%= now_post.published_at.strftime("%b %d, %Y") %>)</span>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,20 @@
+{
+  "name": "smeriwether.com",
+  "version": "1.0.0",
+  "description": "Javascript post-processing to my personal website",
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
+  },
+  "scripts": {
+    "build": "NODE_ENV=production npx postcss public/styles.css -o docs/styles.css"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.0.2",
+    "postcss": "^8.1.8",
+    "postcss-cli": "^8.3.0",
+    "tailwindcss": "^2.0.1"
+  }
+}

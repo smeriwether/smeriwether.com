@@ -1,11 +1,12 @@
 version: 2.1
 orbs:
-  ruby: circleci/ruby@0.1.2
+  ruby: circleci/ruby@1.1.2
+  node: circleci/node@4.1.0
 
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
+      - image: cimg/ruby:2.7.1-node
     executor: ruby/default
     steps:
       - checkout
@@ -14,13 +15,21 @@ jobs:
           command: |
             gem install bundler -v 2.1.4
             bundle install
+            npm install
       - add_ssh_keys
       - run:
           name: "Build & Deploy"
           command: |
             eval `ssh-agent`
             ssh-add ~/.ssh/id_rsa*
-            /bin/bash ./infra/deploy.sh
+            /bin/bash ./build.sh
+            :> .nightly-build && echo -n $(date) > .nightly-build
+            git config user.email "smeriwether@hey.com"
+            git config user.name "Stephen Meriwether"
+            git add docs/* -f
+            git add .nightly-build -f
+            git commit -m "Nightly build - $(date) [ci skip]"
+            git push origin v2
 
 workflows:
   version: 2
