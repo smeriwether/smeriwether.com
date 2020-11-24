@@ -16,13 +16,12 @@ jobs:
             gem install bundler -v 2.1.4
             bundle install
             npm install
-      - add_ssh_keys
+      - add_ssh_keys:
+          fingerprints:
+            - "d0:79:4b:17:1d:ac:53:46:69:30:96:4b:e2:af:8d:70"
       - run:
           name: "Build & Deploy"
-          command: |
-            eval `ssh-agent`
-            ssh-add ~/.ssh/id_rsa*
-            /bin/bash ./deploy.sh
+          command: /bin/bash ./deploy.sh
 
 workflows:
   version: 2
