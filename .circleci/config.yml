@@ -22,14 +22,7 @@ jobs:
           command: |
             eval `ssh-agent`
             ssh-add ~/.ssh/id_rsa*
-            /bin/bash ./build.sh
-            :> .nightly-build && echo -n $(date) > .nightly-build
-            git config user.email "smeriwether@hey.com"
-            git config user.name "Stephen Meriwether"
-            git add docs/* -f
-            git add .nightly-build -f
-            git commit -m "Nightly build - $(date) [ci skip]"
-            git push origin master
+            /bin/bash ./deploy.sh
 
 workflows:
   version: 2

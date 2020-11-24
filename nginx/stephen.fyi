@@ -1,0 +1,53 @@
+server {
+  if ($host = www.stephen.fyi) {
+    return 301 https://$host$request_uri;
+  } # managed by Certbot
+
+
+  if ($host = stephen.fyi) {
+    return 301 https://$host$request_uri;
+  } # managed by Certbot
+
+  listen 80;
+  listen [::]:80;
+  server_name stephen.fyi www.stephen.fyi;
+  return 404; # managed by Certbot
+}
+
+server {
+  server_name stephen.fyi www.stephen.fyi;
+  root /var/www/stephen.fyi;
+
+  index home.html;
+
+  # Compression
+  gzip              on;
+  gzip_buffers      16 8k;
+  gzip_comp_level   4;
+  gzip_http_version 1.0;
+  gzip_min_length   1280;
+  gzip_types        text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript image/x-icon image/bmp;
+  gzip_vary         on;
+
+  location / {
+    try_files $uri $uri/ =404;
+    default_type text/html;
+  }
+
+  location ~* \.(jpg|jpeg|png|jp2|gif|ico|json|woff2)$ {
+    expires 30d;
+  }
+
+  location ~ /.well-known {
+    allow all;
+  }
+
+  error_page 404 /404.html;
+
+  listen [::]:443 ssl ipv6only=on; # managed by Certbot
+  listen 443 ssl; # managed by Certbot
+  ssl_certificate /etc/letsencrypt/live/stephen.fyi/fullchain.pem; # managed by Certbot
+  ssl_certificate_key /etc/letsencrypt/live/stephen.fyi/privkey.pem; # managed by Certbot
+  include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}

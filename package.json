@@ -1,7 +1,7 @@
 {
-  "name": "smeriwether.com",
+  "name": "stephen.fyi",
   "version": "1.0.0",
-  "description": "Javascript post-processing to my personal website",
+  "description": "Javascript pre-processing to my personal website",
   "postcss": {
     "plugins": {
       "tailwindcss": {},
@@ -9,7 +9,7 @@
     }
   },
   "scripts": {
-    "build": "NODE_ENV=production npx postcss public/styles.css -o docs/styles.css"
+    "build": "npx postcss public/styles.css -o public/assets/styles.css"
   },
   "dependencies": {
     "autoprefixer": "^10.0.2",

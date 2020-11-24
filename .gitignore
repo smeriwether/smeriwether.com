@@ -1,3 +1,5 @@
 .env
-docs/**
-.nightly-build
+public/assets/styles.css
+**/docs/**
+**/site/**
+**/node_modules/**

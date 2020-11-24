@@ -21,7 +21,7 @@ puts "Starting website build!"
 def write_page(page_name)
   @template = Erubis::EscapedEruby.new(File.read("views/#{page_name}.html.erb")).result(binding())
   page = Erubis::Eruby.new(File.read("views/index.html.erb")).result(binding())
-  file = page_name == "home" ? "docs/index.html" : "docs/#{page_name}.html"
+  file = "#{ENV['SITE_DIR']}/#{page_name}.html"
   FileUtils.mkdir_p(File.dirname(file)) unless Dir.exists?(File.dirname(file))
   File.open(file, "w") { |file| file.puts(page) }
 end
@@ -35,6 +35,6 @@ write_page("now")
 write_page("tweets")
 write_page("404")
 
-FileUtils.cp_r("public/assets/.", "docs/")
+FileUtils.cp_r("public/assets/.", "#{ENV['SITE_DIR']}/")
 
 puts "Finished website build!"
