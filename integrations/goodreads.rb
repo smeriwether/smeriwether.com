@@ -41,10 +41,18 @@ module Integrations
 
     def fetch_reviews_uncached!
       begin
-        response_doc = Nokogiri::XML(URI.open("#{API_URL}/review/list/#{USER_ID}.xml?v=2&key=#{API_KEY}"))
-        raise GoodreadsError, response_doc.errors.map(&:message).join(", ") if response_doc.errors.any?
+        reviews = []
+        iteration = 1
 
-        reviews = response_doc.xpath("//review").map do |review|
+        loop do
+          response_doc = Nokogiri::XML(URI.open("#{API_URL}/review/list/#{USER_ID}.xml?v=2&key=#{API_KEY}&page=#{iteration}"))
+          raise GoodreadsError, response_doc.errors.map(&:message).join(", ") if response_doc.errors.any?
+          reviews = [*reviews, *response_doc.xpath("//review")]
+          break if response_doc.xpath("//review").empty? || iteration > 100 # safe gaurd if something goes terrible
+          iteration = iteration + 1
+        end
+
+        reviews.map do |review|
           book_title = review.xpath(".//book/title").text
           book_authors = review.xpath(".//book/authors").map { |author| author.xpath("author/name").text }
           book_link = review.xpath(".//book/link").text
