@@ -22,6 +22,16 @@ def write_page(page_name)
   @template = Erubis::EscapedEruby.new(File.read("views/#{page_name}.html.erb")).result(binding())
   page = Erubis::Eruby.new(File.read("views/index.html.erb")).result(binding())
   file = "#{ENV['SITE_DIR']}/#{page_name}.html"
+  if ENV["PRODUCTION"]
+    page = page.gsub("index.html", "/")
+    page.scan(/.+\.html/).each do |link|
+      if !link.include?("http")
+        fixed_link = link.gsub(".html", "")
+        page.gsub!(link, fixed_link)
+      end
+    end
+    file = "#{ENV['SITE_DIR']}/#{page_name}"
+  end
   FileUtils.mkdir_p(File.dirname(file)) unless Dir.exists?(File.dirname(file))
   File.open(file, "w") { |file| file.puts(page) }
 end

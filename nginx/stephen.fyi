@@ -18,7 +18,7 @@ server {
   server_name stephen.fyi www.stephen.fyi;
   root /var/www/stephen.fyi;
 
-  index home.html;
+  index home;
 
   # Compression
   gzip              on;
