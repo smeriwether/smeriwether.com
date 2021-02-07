@@ -1,7 +1,7 @@
 {
   "name": "stephen.fyi",
   "version": "1.0.0",
-  "description": "Javascript pre-processing to my personal website",
+  "description": "Javascript pre-processing for my personal website",
   "postcss": {
     "plugins": {
       "tailwindcss": {},
@@ -9,7 +9,9 @@
     }
   },
   "scripts": {
-    "build": "npx postcss public/styles.css -o public/assets/styles.css"
+    "open": "open ./site/index.html",
+    "build": "./build.sh",
+    "deploy": "./deploy.sh"
   },
   "dependencies": {
     "autoprefixer": "^10.0.2",

@@ -18,20 +18,57 @@ server {
   server_name stephen.fyi www.stephen.fyi;
   root /var/www/stephen.fyi;
 
-  index home;
+  index index;
 
   # Compression
-  gzip              on;
-  gzip_buffers      16 8k;
-  gzip_comp_level   4;
-  gzip_http_version 1.0;
-  gzip_min_length   1280;
-  gzip_types        text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript image/x-icon image/bmp;
-  gzip_vary         on;
+  gzip on;
+  gzip_buffers 16 8k;
+  gzip_comp_level 4;
+  gzip_http_version 1.1;
+  gzip_min_length 1280;
+  gzip_types
+    application/atom+xml
+    application/geo+json
+    application/javascript
+    application/x-javascript
+    application/json
+    application/ld+json
+    application/manifest+json
+    application/rdf+xml
+    application/rss+xml
+    application/vnd.ms-fontobject
+    application/wasm
+    application/x-web-app-manifest+json
+    application/xhtml+xml
+    application/xml
+    font/eot
+    font/otf
+    font/ttf
+    image/bmp
+    image/svg+xml
+    text/cache-manifest
+    text/calendar
+    text/css
+    text/javascript
+    text/markdown
+    text/plain
+    text/xml
+    text/vcard
+    text/vnd.rim.location.xloc
+    text/vtt
+    text/x-component
+    text/x-cross-domain-policy;
+  gzip_vary on;
+  gzip_proxied any;
+  gzip_disable "msie6";
 
   location / {
     try_files $uri $uri/ =404;
     default_type text/html;
+  }
+
+  location ~* \.(css)$ {
+    expires 12h;
   }
 
   location ~* \.(jpg|jpeg|png|jp2|gif|ico|json|woff2)$ {
@@ -42,7 +79,12 @@ server {
     allow all;
   }
 
-  error_page 404 /404.html;
+  location /public/ {
+    autoindex on;
+    root /var/www/stephen.fyi;
+  }
+
+  error_page 404 /404;
 
   listen [::]:443 ssl ipv6only=on; # managed by Certbot
   listen 443 ssl; # managed by Certbot

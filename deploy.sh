@@ -2,7 +2,7 @@
 
 echo "Building..."
 
-PRODUCTION=true NODE_ENV=production ./build.sh
+NODE_ENV=production ./build.sh
 
 echo "Deploying..."
 

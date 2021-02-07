@@ -1,7 +1,16 @@
 #!/bin/bash
 
-rm -rf ./site/*
+rm -rf ./site
 
-npm run build
+npx postcss ./styles.css -o ./site/styles.css
 
-ruby main.rb
+cp index.html ./site/index.html
+cp 404.html ./site/404.html
+
+if [[ $NODE_ENV == "production" ]]; then
+  for file in ./site/*.html; do
+    mv -- "$file" "${file%%.html}"
+  done
+fi
+
+cp -R ./public ./site
