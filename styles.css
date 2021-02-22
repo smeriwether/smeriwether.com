@@ -4,14 +4,14 @@
 
 @layer base {
   a {
-    @apply border-dotted border-b-2 border-gray-800;
+    @apply text-indigo-700;
   }
 
   a:hover {
-    @apply font-bold;
+    @apply border-dotted border-b-2 border-indigo-700;
   }
 
-  p {
+  p, li {
     @apply leading-loose;
   }
 }
