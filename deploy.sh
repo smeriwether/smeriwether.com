@@ -30,6 +30,12 @@ if [ $? == 1 ]; then
   exit 1
 fi
 
+scp -o StrictHostKeyChecking=no -rp $WEBSITE/nginx/merimerimeri.com $WEBSITE_SERVER:/etc/nginx/sites-enabled/merimerimeri.com
+if [ $? == 1 ]; then
+  echo "Deploy failed"
+  exit 1
+fi
+
 echo "Cleaning up..."
 
 ssh $WEBSITE_SERVER "sudo systemctl restart nginx"
