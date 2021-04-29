@@ -86,7 +86,7 @@ server {
 
   error_page 404 /404;
 
-  listen [::]:443 ssl ipv6only=on; # managed by Certbot
+  listen [::]:443 ssl; # managed by Certbot
   listen 443 ssl; # managed by Certbot
   ssl_certificate /etc/letsencrypt/live/stephen.fyi/fullchain.pem; # managed by Certbot
   ssl_certificate_key /etc/letsencrypt/live/stephen.fyi/privkey.pem; # managed by Certbot
