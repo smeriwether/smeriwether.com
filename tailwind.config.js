@@ -3,13 +3,7 @@ module.exports = {
     "./**/*.html"
   ],
   darkMode: false,
-  theme: {
-    extend: {
-      fontFamily: {
-        inter: ["Inter", "sans-serif"],
-      },
-    },
-  },
+  theme: {},
   variants: {
     extend: {},
   },
