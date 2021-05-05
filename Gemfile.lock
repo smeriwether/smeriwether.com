@@ -1,0 +1,17 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    erubis (2.7.0)
+    rexml (3.2.5)
+    rss (0.2.9)
+      rexml
+
+PLATFORMS
+  x86_64-darwin-20
+
+DEPENDENCIES
+  erubis
+  rss
+
+BUNDLED WITH
+   2.2.3

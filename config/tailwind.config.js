@@ -1,6 +1,6 @@
 module.exports = {
   purge: [
-    "./**/*.html"
+    "./**/*.html.erb"
   ],
   darkMode: false,
   theme: {},

@@ -22,31 +22,27 @@
     <script src="https://reptile.stephen.fyi/script.js" data-site="SEZGMFIP" defer></script>
     <!-- / Fathom -->
   </head>
-  <body class="max-w-screen-sm mx-auto bg-white text-gray-800 font-inter px-6 lg:px-2">
-    <section class="mb-12 mt-12">
-      <header>
-        <picture>
-          <source srcset="public/photo.jp2" type="image/jp2">
-          <img src="public/photo.jpg" class="w-32 h-32 mb-4 rounded md:w-36 md:h-36" width="144" height="144" alt="A photo of Stephen Meriwether" />
-        </picture>
+  <body class="max-w-screen-sm mx-auto bg-white text-gray-800 font-inter px-6 md:px-2">
+    <%= @content %>
 
-        <h1 class="font-bold text-3xl mb-2">Hi 👋, I'm Stephen.</h1>
+    <script>
+      var today = new Date();
+      var weekdays = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
 
-        <p>This is my online home.</p>
-      </header>
-    </section>
-
-    <section class="mb-12">
-      <p>
-        You've entered a room that doesn't exist. Don't worry, finding your way back is easy, just
-        click <a href="/">here</a>.
-      </p>
-    </section>
-
-    <section class="mb-12">
-      <p>
-        Thanks for stopping by!
-      </p>
-    </section>
+      console.log(`
+      Hi 👋. Welcome to the basement of my home. If you're curious how I built this site, I have good news! It's open source! Take
+      a look at the site on Github here: https://github.com/smeriwether/stephen.fyi.
+      At a high level, it's a static site, with TailwindCSS, served via NGINX on a DigitalOcean droplet.
+      Enjoy the rest of your ${weekdays[today.getDay()]}.
+      `);
+    </script>
   </body>
 </html>
