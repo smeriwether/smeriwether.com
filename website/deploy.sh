@@ -2,7 +2,7 @@
 
 echo "Building..."
 
-NODE_ENV=production ./build.sh
+NODE_ENV=production ./website/build.sh
 
 echo "Deploying..."
 
@@ -12,19 +12,19 @@ if [ $? == 1 ]; then
   exit 1
 fi
 
-scp -o StrictHostKeyChecking=no -rp ./config/nginx/stephen.fyi $WEBSITE_SERVER:/etc/nginx/sites-enabled/stephen.fyi
+scp -o StrictHostKeyChecking=no -rp ./website/config/nginx/stephen.fyi $WEBSITE_SERVER:/etc/nginx/sites-enabled/stephen.fyi
 if [ $? == 1 ]; then
   echo "Deploy failed"
   exit 1
 fi
 
-scp -o StrictHostKeyChecking=no -rp ./config/nginx/smeriwether.com $WEBSITE_SERVER:/etc/nginx/sites-enabled/smeriwether.com
+scp -o StrictHostKeyChecking=no -rp ./website/config/nginx/smeriwether.com $WEBSITE_SERVER:/etc/nginx/sites-enabled/smeriwether.com
 if [ $? == 1 ]; then
   echo "Deploy failed"
   exit 1
 fi
 
-scp -o StrictHostKeyChecking=no -rp ./config/nginx/meriwether.io $WEBSITE_SERVER:/etc/nginx/sites-enabled/meriwether.io
+scp -o StrictHostKeyChecking=no -rp ./website/config/nginx/meriwether.io $WEBSITE_SERVER:/etc/nginx/sites-enabled/meriwether.io
 if [ $? == 1 ]; then
   echo "Deploy failed"
   exit 1

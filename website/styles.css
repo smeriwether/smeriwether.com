@@ -24,4 +24,12 @@
   p, li {
     @apply leading-loose;
   }
+
+  p {
+    @apply mb-3;
+  }
+
+  #post ul {
+    @apply ml-2 list-disc list-inside;
+  }
 }

@@ -10,8 +10,8 @@
   },
   "scripts": {
     "open": "open ./site/index.html",
-    "build": "./build.sh",
-    "deploy": "./deploy.sh"
+    "build": "./website/build.sh",
+    "deploy": "./website/deploy.sh"
   },
   "dependencies": {
     "autoprefixer": "^10.0.2",
