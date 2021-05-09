@@ -2,6 +2,7 @@ require "date"
 require "erubis"
 require "kramdown"
 require "pry"
+require "rss"
 require "yaml"
 
 def build_page(template_path, contents = nil)
@@ -28,8 +29,8 @@ def prepare_page_for_production(page_contents)
   updated_page
 end
 
-def write_file(file_contents, file_name)
-  file = "./site/#{file_name}.html"
+def write_file(file_contents, file_name, file_type = "html")
+  file = "./site/#{file_name}.#{file_type}"
   FileUtils.mkdir_p(File.dirname(file)) unless Dir.exists?(File.dirname(file))
   File.open(file, "w") { |file| file.puts(file_contents) }
 end
@@ -64,15 +65,42 @@ end
 
 def create_writings
   @posts = load_posts
+  @title = "My writings"
   create_page("writings")
 
   @posts.each do |post|
     @post = post
+    @title = post.title
+    @description = post.description
     create_page("post", @post.slug)
   end
 end
 
+def create_rss_feed
+  posts = load_posts
+
+  rss = RSS::Maker.make("atom") do |maker|
+    maker.channel.author = "Stephen Meriwether"
+    maker.channel.about = "https://stephen.fyi"
+    maker.channel.title = "Stephen Meriwether's writings"
+    maker.channel.description = "Hi 👋, I'm Stephen, welcome to my online home."
+    maker.channel.link = "https://stephen.fyi"
+    maker.channel.updated = Time.now
+
+    posts.each do |post|
+      maker.items.new_item do |item|
+        item.link = "https://stephen.fyi/#{post.slug}"
+        item.title = post.title
+        item.description = post.description
+        item.updated = post.published_date.to_s
+      end
+    end
+  end
+
+  write_file(rss.to_rss("2.0"), "feed", "rss")
+end
 
 create_page("home", "index")
 create_page("404")
 create_writings
+create_rss_feed

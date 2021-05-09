@@ -1,12 +1,12 @@
 many-mentors:
   slug: "mentors"
   title: "I have many mentors"
-  description: ""
+  description: "Mentors come in all shapes and sizes."
   published_date: "2020-11-30"
 last-post-to-hey-world:
   slug: "last-post-to-hey-world"
   title: "My last post to HEY World"
-  description: ""
+  description: "How I'm responding to the Basecamp drama."
   published_date: "2021-04-28"
 leaving-nyc:
   slug: "leaving-nyc"

@@ -14,6 +14,13 @@
   <h1 class="text-4xl md:text-5xl font-bold"><%= @post.title %></h1>
 </section>
 
-<section id="post" class="text-lg mb-20">
+<section id="post" class="text-lg mb-10">
   <%== @post.html %>
 </section>
+
+<footer class="mb-20 flex items-center justify-center">
+  <div class="w-full md:w-96 flex flex-col text-center border rounded p-6">
+    <span class="pb-2"><strong>Get notified of my future posts</strong></span>
+    <span>Grab the <a href="feed.rss" class="underline hover:underline" style="border: 0;">RSS feed</a></span>
+  </div>
+</footer>
