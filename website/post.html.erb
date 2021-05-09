@@ -4,12 +4,12 @@
       <source srcset="public/photo.jp2" type="image/jp2">
       <img src="public/photo.jpg" class="w-12 h-12 rounded mb-2" width="48" height="48" alt="A photo of Stephen Meriwether" />
     </picture>
-    <p class="uppercase text-gray-500 font-sm tracking-widest">Stephen Meriwether</p>
+    <p class="uppercase text-gray-500 font-sm tracking-widest dark:text-gray-400">Stephen Meriwether</p>
   </a>
 </header>
 
 <section class="text-center mb-10">
-  <span class="text-sm text-gray-500"><%= @post.published_date.strftime("%B %e, %Y") %></span>
+  <span class="text-sm text-gray-500 dark:text-gray-400"><%= @post.published_date.strftime("%B %e, %Y") %></span>
 
   <h1 class="text-4xl md:text-5xl font-bold"><%= @post.title %></h1>
 </section>
@@ -19,7 +19,7 @@
 </section>
 
 <footer class="mb-20 flex items-center justify-center">
-  <div class="w-full md:w-96 flex flex-col text-center border rounded p-6">
+  <div class="w-full md:w-96 flex flex-col text-center border rounded p-6 dark:border-gray-300">
     <span class="pb-2"><strong>Get notified of my future posts</strong></span>
     <span>Grab the <a href="feed.rss" class="underline hover:underline" style="border: 0;">RSS feed</a></span>
   </div>

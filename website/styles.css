@@ -2,23 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .secondary-link {
-    @apply text-gray-600;
-  }
-
-  .secondary-link:hover {
-    @apply border-none no-underline;
-  }
-}
-
 @layer base {
   a {
-    @apply text-indigo-700;
+    @apply text-indigo-700 dark:text-indigo-300;
   }
 
   a:hover {
-    @apply border-dotted border-b-2 border-indigo-700 no-underline;
+    @apply border-dotted border-b-2 border-indigo-700 no-underline dark:border-indigo-300;
   }
 
   p, li {

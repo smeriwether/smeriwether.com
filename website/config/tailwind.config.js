@@ -3,7 +3,7 @@ module.exports = {
   purge: [
     "./website/**/*.html.erb"
   ],
-  darkMode: false,
+  darkMode: "media",
   theme: {},
   variants: {
     extend: {},
