@@ -18,7 +18,7 @@
 
 <section class="mb-12" >
   <ol>
-    <% @posts.sort_by { |p| p.published_date }.each do |post| %>
+    <% @posts.sort_by { |p| p.published_date }.reverse.each do |post| %>
       <li class="mb-3 flex justify-between">
         <a href="<%= post.slug %>.html"><%= post.title %></a>
         <span class="text-sm"><%= post.published_date.strftime("%Y-%m-%d") %></span>
