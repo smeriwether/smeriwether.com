@@ -18,12 +18,4 @@
   p {
     @apply mb-3;
   }
-
-  #post ul {
-    @apply ml-2 list-disc list-inside;
-  }
-
-  #post blockquote {
-    @apply border-l-2 border-gray-200 pl-4 text-gray-600 dark:text-gray-200 dark:border-gray-500;
-  }
 }

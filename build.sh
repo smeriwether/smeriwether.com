@@ -2,9 +2,12 @@
 
 rm -rf ./site
 
-npx postcss --config=./website/config/postcss.config.js ./website/styles.css -o ./site/styles.css
+npm install
 
-ruby ./website/build.rb
+npx postcss --config=./postcss.config.js ./styles.css -o ./site/styles.css
+
+mv index.html ./site/index.html
+mv 404.html ./site/404.html
 
 if [[ $NODE_ENV == "production" ]]; then
   for file in ./site/*.html; do
