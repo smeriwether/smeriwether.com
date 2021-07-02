@@ -1,7 +1,8 @@
 module.exports = {
   mode: "jit",
   purge: [
-    "./website/**/*.html.erb"
+    "404.html",
+    "index.html",
   ],
   darkMode: "media",
   theme: {},
